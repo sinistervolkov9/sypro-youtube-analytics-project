@@ -22,6 +22,51 @@ class Channel:
         self.video_count = channel["items"][0]["statistics"]["videoCount"]  # количество видео
         self.view_count = channel["items"][0]["statistics"]["viewCount"]  # общее количество просмотров
 
+    def __add__(self, other_channel):
+        return int(self.sub_count) + int(other_channel.sub_count)
+
+    def __sub__(self, other_channel):
+        return int(self.sub_count) - int(other_channel.sub_count)
+
+    def __eq__(self, other_channel):
+        """
+        Сравнение на равенство ==
+        """
+        return self.sub_count == other_channel.sub_count
+
+    def __lt__(self, other_channel):
+        """
+        Сравнение на меньше <
+        """
+        return self.sub_count < other_channel.sub_count
+
+    def __gt__(self, other_channel):
+        """
+        Сравнение на больше >
+        """
+        return self.sub_count > other_channel.sub_count
+
+    def __le__(self, other_channel):
+        """
+        Сравнение на меньше или равно <=
+        """
+        return self.sub_count <= other_channel.sub_count
+
+    def __ge__(self, other_channel):
+        """
+        Сравнение на больше или равно >=
+        """
+        return self.sub_count >= other_channel.sub_count
+
+    def __ne__(self, other_channel):
+        """
+        Сравнение на неравенство !=
+        """
+        return self.sub_count != other_channel.sub_count
+
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(f"Channel ID: {self.channel_id}")
