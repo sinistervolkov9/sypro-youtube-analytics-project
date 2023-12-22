@@ -1,6 +1,8 @@
 from src.channel import Channel
 from src.video import Video
 from src.video import PLVideo
+import datetime
+from src.playlist import PlayList
 
 if __name__ == '__main__':
     moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
@@ -50,6 +52,18 @@ if __name__ == '__main__':
     assert str(video1) == 'GIL в Python: зачем он нужен и как с этим жить'
     assert str(video2) == 'MoscowPython Meetup 78 - вступление'
 
+    # дз5
+
+    pl = PlayList('PLv_zOGKKxVpj-n2qLkEM2Hj96LO6uqgQw')
+    #assert pl.title == "Moscow Python Meetup №81"
+    assert pl.url == "https://www.youtube.com/playlist?list=PLv_zOGKKxVpj-n2qLkEM2Hj96LO6uqgQw"
+
+    duration = pl.total_duration
+    assert str(duration) == "1:49:52"
+    assert isinstance(duration, datetime.timedelta)
+    assert duration.total_seconds() == 6592.0
+
+    assert pl.show_best_video() == "https://youtu.be/cUGyMzWQcGM"
 
     """
 {

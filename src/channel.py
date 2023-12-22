@@ -12,11 +12,11 @@ class Channel:
     def __init__(self, channel_id: str) -> None:
         """Экземпляр инициализируется id канала. Дальше все данные будут подтягиваться по API."""
         self.channel_id = channel_id  # id канала
+        self.url = f"https://www.youtube.com/channel/{channel_id}]"  # ссылка на канал
         channel = youtube.channels().list(id=self.channel_id, part="snippet, statistics").execute()  # название канала
 
         self.title = channel["items"][0]["snippet"]["title"]
         self.description = channel["items"][0]["snippet"]["description"]  # описание канала
-        self.url = f"https://www.youtube.com/channel/{channel_id}]"  # ссылка на канал
         self.sub_count = channel["items"][0]["statistics"]["subscriberCount"]  # количество подписчиков
         self.video_count = channel["items"][0]["statistics"]["videoCount"]  # количество видео
         self.view_count = channel["items"][0]["statistics"]["viewCount"]  # общее количество просмотров
