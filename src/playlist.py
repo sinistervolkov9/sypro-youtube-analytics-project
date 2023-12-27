@@ -35,8 +35,5 @@ class PlayList:
             if int(max_like) < int(video_likes):
                 best_video_url = f"https://youtu.be/{video_id}"
                 max_like = video_likes
-                continue
-            else:
-                continue
 
         return best_video_url
