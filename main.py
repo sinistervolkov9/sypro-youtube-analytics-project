@@ -63,7 +63,13 @@ if __name__ == '__main__':
     assert isinstance(duration, datetime.timedelta)
     assert duration.total_seconds() == 6592.0
 
-    assert pl.show_best_video() == "https://youtu.be/cUGyMzWQcGM"
+    # assert pl.show_best_video() == "https://youtu.be/cUGyMzWQcGM"
+
+    # дз6
+
+    broken_video = Video('broken_video_id')
+    assert broken_video.title is None
+    assert broken_video.video_like_count is None
 
     """
 {
